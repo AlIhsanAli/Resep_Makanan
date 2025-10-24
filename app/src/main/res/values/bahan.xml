@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Nasi Goreng -->
+    <string-array name="ingredients_nasi_goreng">
+        <item>Nasi putih;2;piring</item>
+        <item>Bawang merah;5;siung</item>
+        <item>Bawang putih;3;siung</item>
+        <item>Telur;2;butir</item>
+        <item>Ayam suwir;100;g</item>
+        <item>Kecap manis;3;sdm</item>
+    </string-array>
+    <!-- Soto Ayam -->
+    <string-array name="ingredients_soto_ayam">
+        <item>Ayam kampung;0.5;ekor</item>
+        <item>Soun;50;g</item>
+        <item>Tauge;100;g</item>
+        <item>Seledri;2;batang</item>
+        <item>Bawang goreng;0;secukupnya</item>
+        <item>Koya;0;secukupnya</item>
+    </string-array>
+    <!-- Gado-Gado -->
+    <string-array name="ingredients_gado_gado">
+        <item>Kangkung;1;ikat</item>
+        <item>Tauge;100;g</item>
+        <item>Tahu;2;buah</item>
+        <item>Tempe;1;papan</item>
+        <item>Lontong;2;buah</item>
+        <item>Saus kacang;200;ml</item>
+    </string-array>
+    <!-- Rendang -->
+    <string-array name="ingredients_rendang">
+        <item>Daging sapi;500;g</item>
+        <item>Santan kental;500;ml</item>
+        <item>Bumbu rendang instan;1;bungkus</item>
+        <item>Daun jeruk;3;lembar</item>
+        <item>Serai;2;batang</item>
+    </string-array>
+    <!-- Sate Ayam -->
+    <string-array name="ingredients_sate_ayam">
+        <item>Daging ayam;500;g</item>
+        <item>Tusuk sate;20;buah</item>
+        <item>Kacang tanah goreng;150;g</item>
+        <item>Bawang merah;4;siung</item>
+        <item>Kecap manis;5;sdm</item>
+    </string-array>
+    <!-- Bakso -->
+    <string-array name="ingredients_bakso">
+        <item>Daging sapi giling;250;g</item>
+        <item>Tepung tapioka;50;g</item>
+        <item>Bawang putih;3;siung</item>
+        <item>Kaldu sapi blok;2;buah</item>
+        <item>Mi kuning;100;g</item>
+    </string-array>
+    <!-- Rawon -->
+    <string-array name="ingredients_rawon">
+        <item>Daging sapi;300;g</item>
+        <item>Kluwek;4;buah</item>
+        <item>Bumbu rawon instan;1;bungkus</item>
+        <item>Tauge pendek;50;g</item>
+        <item>Telur asin;2;butir</item>
+    </string-array>
+    <!-- Pempek -->
+    <string-array name="ingredients_pempek">
+        <item>Ikan tenggiri giling;250;g</item>
+        <item>Tepung sagu;200;g</item>
+        <item>Telur;1;butir</item>
+        <item>Gula merah;100;g</item>
+        <item>Cuka;2;sdm</item>
+        <item>Cabai rawit;5;buah</item>
+    </string-array>
+    <!-- Iga Bakar -->
+    <string-array name="ingredients_iga_bakar">
+        <item>Iga sapi;500;g</item>
+        <item>Madu;4;sdm</item>
+        <item>Kecap manis;3;sdm</item>
+        <item>Bawang bombay;0.5;buah</item>
+        <item>Saus tiram;2;sdm</item>
+    </string-array>
+    <!-- Sayur Asem -->
+    <string-array name="ingredients_sayur_asem">
+        <item>Kacang panjang;5;helai</item>
+        <item>Labu siam;1;buah</item>
+        <item>Jagung manis;1;buah</item>
+        <item>Asam jawa;2;sdm</item>
+        <item>Bumbu sayur asem;1;bungkus</item>
+    </string-array>
+</resources>

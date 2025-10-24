@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Nasi Goreng -->
+    <string-array name="steps_nasi_goreng">
+        <item>Pertama, ulek atau blender bawang merah dan bawang putih hingga benar-benar halus.</item>
+        <item>Panaskan sedikit minyak di wajan. Tumis bumbu yang sudah dihaluskan hingga tercium aroma harum.</item>
+        <item>Pinggirkan bumbu ke sisi wajan, lalu masukkan telur. Buat orak-arik hingga matang.</item>
+        <item>Masukkan suwiran ayam, aduk sebentar, lalu masukkan nasi putih. Besarkan api sedikit.</item>
+        <item>Aduk cepat dengan api sedang-besar hingga nasi dan semua bumbu tercampur rata dan nasi tidak lagi menggumpal.</item>
+        <item>Bumbui dengan kecap manis, garam, dan merica secukupnya. Koreksi rasa, dan sajikan selagi hangat dengan taburan bawang goreng jika suka.</item>
+    </string-array>
+    <!-- Soto Ayam -->
+    <string-array name="steps_soto_ayam">
+        <item>Rebus ayam kampung dalam air mendidih hingga benar-benar empuk. Angkat ayam dan sisihkan air kaldunya. Setelah ayam dingin, suwir-suwir dagingnya.</item>
+        <item>Panaskan minyak, tumis bumbu halus untuk soto (biasanya kunyit, jahe, kemiri, bawang) hingga matang dan harum untuk menghilangkan bau langu.</item>
+        <item>Tuang tumisan bumbu ke dalam panci berisi air kaldu ayam. Masak kembali kuah hingga mendidih dan semua bumbu meresap sempurna. Jangan lupa tambahkan garam dan penyedap.</item>
+        <item>Siapkan mangkuk saji. Tata soun yang sudah direndam air panas, tauge, dan suwiran ayam.</item>
+        <item>Siram dengan kuah soto yang masih panas-panas. Taburi dengan seledri cincang, bawang goreng, dan bubuk koya. Sajikan segera dengan sambal dan perasan jeruk nipis.</item>
+    </string-array>
+    <!-- Gado-Gado -->
+    <string-array name="steps_gado_gado">
+        <item>Siangi dan cuci bersih semua sayuran. Rebus setiap jenis sayuran secara terpisah hingga matang (jangan terlalu lembek agar masih renyah). Angkat dan tiriskan.</item>
+        <item>Goreng tahu dan tempe dalam minyak panas hingga berwarna keemasan. Angkat, tiriskan, lalu potong-potong ukuran dadu.</item>
+        <item>Siapkan piring saji. Tata irisan lontong di bagian bawah, kemudian susun dengan rapi sayuran rebus, potongan tahu, dan tempe di atasnya.</item>
+        <item>Siram secara merata dengan saus kacang yang sudah Anda siapkan sebelumnya.</item>
+        <item>Sajikan segera dengan taburan bawang goreng dan pelengkap wajibnya, emping melinjo atau kerupuk udang.</item>
+    </string-array>
+    <!-- Rendang -->
+    <string-array name="steps_rendang">
+        <item>Cuci bersih daging sapi, lalu potong-potong ukuran rendang (sekitar 4x4 cm). Jangan terlalu kecil agar tidak hancur saat dimasak lama.</item>
+        <item>Dalam wajan besar, campurkan potongan daging dengan bumbu instan (atau bumbu halus jika membuat dari nol). Aduk hingga semua permukaan daging terbalut bumbu.</item>
+        <item>Tuangkan santan kental, masukkan daun jeruk, dan serai yang sudah dimemarkan. Aduk perlahan hingga tercampur.</item>
+        <item>Masak dengan api kecil sambil terus diaduk perlahan setiap 15-20 menit agar santan tidak pecah dan bagian bawahnya tidak gosong. Proses ini butuh kesabaran.</item>
+        <item>Terus masak hingga santan mengering, mengeluarkan minyak, dan bumbu meresap sempurna. Daging akan berubah warna menjadi coklat gelap. Proses ini bisa memakan waktu 2-4 jam. Rendang siap disajikan.</item>
+    </string-array>
+    <!-- Sate Ayam -->
+    <string-array name="steps_sate_ayam">
+        <item>Untuk saus: Haluskan kacang tanah yang sudah digoreng bersama bawang putih, cabai. Masak dengan tambahan kecap manis, garam, dan air hingga mengental. Sisihkan.</item>
+        <item>Potong daging ayam bentuk dadu. Ambil sekitar 3-4 sendok makan saus kacang, campurkan dengan kecap manis, lalu lumurkan pada potongan ayam. Diamkan selama minimal 30 menit agar bumbu meresap.</item>
+        <item>Tusuk 3-4 potong daging ayam pada setiap tusuk sate hingga habis.</item>
+        <item>Bakar sate di atas bara api atau teflon panas. Bolak-balik sambil diolesi dengan sisa bumbu rendaman hingga matang merata di kedua sisi dan sedikit gosong.</item>
+        <item>Sajikan sate ayam dengan siraman sisa saus kacang, irisan bawang merah mentah, cabai rawit potong, dan lontong atau nasi hangat.</item>
+    </string-array>
+    <!-- Bakso -->
+    <string-array name="steps_bakso">
+        <item>Dalam wadah, campurkan daging sapi giling, tepung tapioka, bawang putih halus, garam, dan merica. Uleni atau aduk hingga adonan benar-benar tercampur rata dan kalis.</item>
+        <item>Didihkan air dalam panci besar. Setelah mendidih, kecilkan api hingga air tenang (tidak bergejolak). Bentuk adonan menjadi bola-bola bakso dengan tangan atau dua sendok.</item>
+        <item>Masukkan bola-bola bakso ke dalam air panas tersebut. Rebus hingga semua bakso mengapung ke permukaan, itu tandanya sudah matang. Angkat dan tiriskan.</item>
+        <item>Untuk kuah: Didihkan air bersih (atau sisa rebusan bakso yang disaring), masukkan kaldu blok atau tulang sapi, bumbui dengan garam dan merica. Masak hingga mendidih dan rasanya pas.</item>
+        <item>Sajikan bakso dalam mangkuk bersama mi, sawi hijau yang sudah direbus, lalu siram dengan kuah panas. Taburi bawang goreng dan seledri agar lebih nikmat.</item>
+    </string-array>
+    <!-- Rawon -->
+    <string-array name="steps_rawon">
+        <item>Rebus daging sapi hingga empuk. Angkat daging, lalu potong-potong bentuk dadu. Saring air rebusan untuk dijadikan kaldu, sisihkan.</item>
+        <item>Pecahkan kluwek, ambil isinya, lalu rendam dengan air panas sebentar agar lunak. Haluskan isi kluwek bersama bumbu-bumbu lainnya (bawang, kunyit, jahe, dll).</item>
+        <item>Panaskan sedikit minyak, tumis bumbu halus dan kluwek hingga benar-benar matang dan wangi. Ini penting agar kuah tidak terasa pahit.</item>
+        <item>Tuang tumisan bumbu ke dalam panci berisi kaldu daging. Masak hingga kuah mendidih.</item>
+        <item>Masukkan kembali potongan daging ke dalam kuah. Bumbui dengan garam dan gula secukupnya. Masak dengan api kecil hingga bumbu meresap sempurna ke dalam daging.</item>
+        <item>Sajikan rawon selagi panas dengan pelengkap wajibnya: tauge pendek mentah, sambal terasi, kerupuk udang, dan telur asin.</item>
+    </string-array>
+    <!-- Pempek -->
+    <string-array name="steps_pempek">
+        <item>Dalam wadah besar, aduk rata ikan tenggiri giling, telur, garam, dan sedikit air dingin. Masukkan tepung sagu sedikit demi sedikit sambil diuleni perlahan (jangan ditekan kuat) hingga adonan tercampur rata dan bisa dibentuk.</item>
+        <item>Bentuk adonan sesuai selera (misal: panjang untuk lenjer, atau bulat pipih dan diisi telur kocok untuk kapal selam).</item>
+        <item>Didihkan air dalam panci, tambahkan sedikit minyak goreng agar tidak lengket. Rebus pempek hingga matang dan mengapung. Angkat, tiriskan, dan dinginkan.</item>
+        <item>Untuk kuah cuko: Haluskan bawang putih dan cabai rawit. Rebus bersama gula merah, air, dan cuka. Masak hingga mendidih dan sedikit mengental, lalu saring.</item>
+        <item>Sebelum disajikan, goreng pempek yang sudah direbus dalam minyak panas hingga berwarna keemasan dan sedikit garing di luar.</item>
+        <item>Potong-potong pempek goreng, sajikan dalam piring dan siram dengan kuah cuko. Tambahkan irisan timun dan bubuk ebi jika suka.</item>
+    </string-array>
+    <!-- Iga Bakar -->
+    <string-array name="steps_iga_bakar">
+        <item>Cuci bersih iga sapi. Rebus atau presto iga bersama sedikit garam dan jahe geprek hingga benar-benar empuk (sekitar 30-45 menit dengan presto). Angkat dan tiriskan.</item>
+        <item>Siapkan bumbu olesan: Campurkan madu, kecap manis, saus tiram, dan sedikit merica dalam sebuah mangkuk. Aduk rata.</item>
+        <item>Panaskan sedikit margarin, tumis irisan bawang bombay hingga harum. Masukkan iga yang sudah empuk, aduk sebentar.</item>
+        <item>Tuangkan campuran bumbu olesan ke dalam wajan. Masak bersama iga hingga bumbu meresap dan sedikit mengental. Angkat iga dari wajan, sisihkan sisa bumbu untuk olesan.</item>
+        <item>Panaskan panggangan atau teflon anti lengket. Bakar iga sambil diolesi sisa bumbu hingga muncul aroma smokey dan sedikit gosong di beberapa bagian. Bolak-balik agar tidak hangus.</item>
+        <item>Sajikan iga bakar panas dengan nasi hangat dan sambal favorit Anda.</item>
+    </string-array>
+    <!-- Sayur Asem -->
+    <string-array name="steps_sayur_asem">
+        <item>Siapkan semua sayuran, potong-potong sesuai selera dan cuci bersih.</item>
+        <item>Didihkan air dalam panci. Masukkan bumbu sayur asem instan (atau bumbu halus: cabai, bawang, kemiri) dan larutan air asam jawa. Aduk rata dan biarkan mendidih.</item>
+        <item>Masukkan sayuran yang teksturnya paling keras terlebih dahulu, seperti jagung manis dan melinjo. Rebus selama sekitar 5 menit.</item>
+        <item>Selanjutnya, masukkan labu siam dan kacang tanah. Masak lagi selama beberapa menit hingga setengah matang.</item>
+        <item>Terakhir, masukkan sayuran yang cepat matang seperti kacang panjang dan daun melinjo. Bumbui dengan garam dan gula secukupnya.</item>
+        <item>Masak sebentar saja hingga semua sayuran matang tetapi masih sedikit renyah. Koreksi rasa asam-manis-gurihnya, lalu angkat. Sajikan hangat bersama nasi dan ikan asin.</item>
+    </string-array>
+</resources>
