@@ -9,6 +9,7 @@ interface ApiService {
     @GET("weather")
     fun getWeather(
         @Query("q") city: String,
-        @Query("appid") apiKey: String
+        @Query("appid") apiKey: String,
+        @Query("units") units: String = "metric" // Menambahkan parameter units
     ): Call<WeatherResponse>
 }

@@ -3,14 +3,14 @@ package com.example.resep_makanan
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityOptionsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.resep_makanan.adapter.ResepAdapter
+import com.example.resep_makanan.databinding.ActivityMainBinding
 import com.example.resep_makanan.db.DatabaseHelper
 import com.example.resep_makanan.model.Resep
 import com.example.resep_makanan.model.WeatherResponse
@@ -21,21 +21,18 @@ import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var rvResep: RecyclerView
+    private lateinit var binding: ActivityMainBinding
     private val list = ArrayList<Resep>()
-    private lateinit var weatherTextView: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        val toolbar: Toolbar = findViewById(R.id.toolbar)
-        setSupportActionBar(toolbar)
-        supportActionBar?.title = "Aneka Resep Lezat"
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.title = "" // Menghapus judul toolbar
 
-        rvResep = findViewById(R.id.rv_resep)
-        rvResep.setHasFixedSize(true)
-        weatherTextView = findViewById(R.id.weatherTextView)
+        binding.rvResep.setHasFixedSize(true)
 
         list.addAll(getAllRecipes())
         showRecyclerList()
@@ -47,18 +44,27 @@ class MainActivity : AppCompatActivity() {
             .enqueue(object : Callback<WeatherResponse> {
                 override fun onResponse(call: Call<WeatherResponse>, response: Response<WeatherResponse>) {
                     if (response.isSuccessful) {
-                        val weatherResponse = response.body()
-                        val temperature = weatherResponse?.main?.temp
-                        val description = weatherResponse?.weather?.firstOrNull()?.description
-                        weatherTextView.text = "Cuaca di Jakarta: $temperature°C, $description"
+                        response.body()?.let { weatherResponse ->
+                            binding.tvCityName.text = "Jakarta"
+                            binding.tvTemperature.text = "${weatherResponse.main.temp.toInt()}°"
+
+                            val iconCode = weatherResponse.weather.firstOrNull()?.icon
+                            val iconUrl = "https://openweathermap.org/img/wn/$iconCode@2x.png"
+
+                            Glide.with(this@MainActivity)
+                                .load(iconUrl)
+                                .into(binding.ivWeatherIcon)
+                        }
                     } else {
-                        weatherTextView.text = "Gagal memuat cuaca"
+                        val errorBody = response.errorBody()?.string()
+                        Log.e("MainActivity", "Error: ${response.code()} - $errorBody")
+                        binding.tvTemperature.text = "Err"
                     }
                 }
 
                 override fun onFailure(call: Call<WeatherResponse>, t: Throwable) {
-                    weatherTextView.text = "Gagal memuat cuaca"
-                    Log.e("MainActivity", "Error fetching weather data", t)
+                    Log.e("MainActivity", "Network failure", t)
+                    binding.tvTemperature.text = "N/A"
                 }
             })
     }
@@ -92,9 +98,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showRecyclerList() {
-        rvResep.layoutManager = LinearLayoutManager(this)
+        binding.rvResep.layoutManager = LinearLayoutManager(this)
         val resepAdapter = ResepAdapter(list)
-        rvResep.adapter = resepAdapter
+        binding.rvResep.adapter = resepAdapter
 
         resepAdapter.setOnItemClickCallback(object : ResepAdapter.OnItemClickCallback {
             override fun onItemClicked(data: Resep, imageView: ImageView) {
