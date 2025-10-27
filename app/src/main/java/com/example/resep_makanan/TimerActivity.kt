@@ -13,6 +13,7 @@ import android.widget.LinearLayout
 import android.widget.NumberPicker
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import java.util.Locale
 
 class TimerActivity : AppCompatActivity() {
@@ -33,6 +34,8 @@ class TimerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_timer)
         
+        val toolbar: Toolbar = findViewById(R.id.timer_toolbar)
+        setSupportActionBar(toolbar)
         supportActionBar?.title = "Timer Memasak"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
@@ -75,16 +78,22 @@ class TimerActivity : AppCompatActivity() {
     }
 
     private fun startTimer() {
-        val hours = pickerHours.value
-        val minutes = pickerMinutes.value
-        val seconds = pickerSeconds.value
-        val totalInMillis = (hours * 3600 + minutes * 60 + seconds) * 1000L
-
-        if (totalInMillis == 0L) return
-
-        timeLeftInMillis = totalInMillis
+        // Jika timer sudah berjalan, jangan lakukan apa-apa
+        if (isTimerRunning && timeLeftInMillis > 0) return
         
-        timer = object : CountDownTimer(timeLeftInMillis, 1000) {
+        // Jika di-pause, lanjutkan dari sisa waktu
+        val duration = if (timeLeftInMillis > 0) {
+            timeLeftInMillis
+        } else {
+            val hours = pickerHours.value
+            val minutes = pickerMinutes.value
+            val seconds = pickerSeconds.value
+            (hours * 3600 + minutes * 60 + seconds) * 1000L
+        }
+
+        if (duration == 0L) return
+
+        timer = object : CountDownTimer(duration, 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 timeLeftInMillis = millisUntilFinished
                 updateTimerDisplay()

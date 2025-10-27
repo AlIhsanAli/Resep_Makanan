@@ -28,7 +28,8 @@
             android:theme="@style/Theme.Resep_Makanan.NoActionBar" />
         <activity
             android:name=".TimerActivity"
-            android:parentActivityName=".DetailActivity" />
+            android:parentActivityName=".DetailActivity"
+            android:theme="@style/Theme.Resep_Makanan.NoActionBar" />
     </application>
 
 </manifest>
