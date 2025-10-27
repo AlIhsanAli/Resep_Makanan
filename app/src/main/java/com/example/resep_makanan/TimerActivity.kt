@@ -33,7 +33,7 @@ class TimerActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_timer)
-        
+
         val toolbar: Toolbar = findViewById(R.id.timer_toolbar)
         setSupportActionBar(toolbar)
         supportActionBar?.title = "Timer Memasak"
@@ -42,6 +42,7 @@ class TimerActivity : AppCompatActivity() {
         bindViews()
         setupPickers()
         setupButtons()
+        updateTimerDisplay() // Initial display update
     }
 
     private fun bindViews() {
@@ -78,10 +79,6 @@ class TimerActivity : AppCompatActivity() {
     }
 
     private fun startTimer() {
-        // Jika timer sudah berjalan, jangan lakukan apa-apa
-        if (isTimerRunning && timeLeftInMillis > 0) return
-        
-        // Jika di-pause, lanjutkan dari sisa waktu
         val duration = if (timeLeftInMillis > 0) {
             timeLeftInMillis
         } else {
@@ -93,17 +90,18 @@ class TimerActivity : AppCompatActivity() {
 
         if (duration == 0L) return
 
-        timer = object : CountDownTimer(duration, 1000) {
+        // Set time and update display immediately before starting
+        timeLeftInMillis = duration
+        updateTimerDisplay()
+
+        timer = object : CountDownTimer(timeLeftInMillis, 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 timeLeftInMillis = millisUntilFinished
                 updateTimerDisplay()
             }
 
             override fun onFinish() {
-                isTimerRunning = false
-                btnStartPause.text = "Mulai"
-                btnReset.visibility = View.VISIBLE
-                pickerContainer.visibility = View.VISIBLE
+                resetTimer() // Reset state completely
                 notifyFinished()
             }
         }.start()
@@ -143,12 +141,10 @@ class TimerActivity : AppCompatActivity() {
 
     private fun notifyFinished() {
         try {
-            // Sound
             val notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
             val r = RingtoneManager.getRingtone(applicationContext, notification)
             r.play()
 
-            // Vibration
             val v = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 v.vibrate(VibrationEffect.createOneShot(500, VibrationEffect.DEFAULT_AMPLITUDE))
