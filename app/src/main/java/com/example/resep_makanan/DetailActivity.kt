@@ -1,5 +1,6 @@
 package com.example.resep_makanan
 
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.widget.Button
@@ -9,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.example.resep_makanan.model.Resep
 import com.google.android.material.appbar.CollapsingToolbarLayout
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import java.util.Locale
 
 class DetailActivity : AppCompatActivity() {
@@ -45,6 +47,7 @@ class DetailActivity : AppCompatActivity() {
             bindViews()
             populateUi(resep)
             setupPortionButtons()
+            setupFab()
         }
     }
 
@@ -69,9 +72,8 @@ class DetailActivity : AppCompatActivity() {
         tvDetailTitle.text = resep.name
         findViewById<ImageView>(R.id.iv_detail_image).setImageResource(resep.image)
 
-        // Mengembalikan cara lama untuk menampilkan langkah-langkah
         val stepsArray = resources.getStringArray(resep.stepsResId)
-        val stepsTextView: TextView = findViewById(R.id.tv_detail_steps) // Mencari TextView yang akan kita kembalikan
+        val stepsTextView: TextView = findViewById(R.id.tv_detail_steps)
         stepsTextView.text = stepsArray
             .mapIndexed { index, step -> "${index + 1}. $step" }
             .joinToString("\n\n")
@@ -90,6 +92,13 @@ class DetailActivity : AppCompatActivity() {
                 currentPortion--
                 updateDynamicContent()
             }
+        }
+    }
+
+    private fun setupFab() {
+        findViewById<FloatingActionButton>(R.id.fab_timer).setOnClickListener {
+            val intent = Intent(this, TimerActivity::class.java)
+            startActivity(intent)
         }
     }
 
