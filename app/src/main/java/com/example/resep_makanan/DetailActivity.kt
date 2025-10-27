@@ -11,6 +11,7 @@ import androidx.appcompat.widget.Toolbar
 import com.example.resep_makanan.model.Resep
 import com.google.android.material.appbar.CollapsingToolbarLayout
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import java.text.NumberFormat
 import java.util.Locale
 
 class DetailActivity : AppCompatActivity() {
@@ -21,12 +22,14 @@ class DetailActivity : AppCompatActivity() {
 
     private var currentPortion = 1
     private var originalResep: Resep? = null
+    private var totalCostPerPortion = 0
 
     private lateinit var tvPortionCount: TextView
     private lateinit var tvDetailIngredients: TextView
     private lateinit var tvDetailCalories: TextView
     private lateinit var tvDetailFiber: TextView
     private lateinit var tvDetailProtein: TextView
+    private lateinit var tvDetailCost: TextView
     private lateinit var tvDetailTitle: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -65,6 +68,7 @@ class DetailActivity : AppCompatActivity() {
         tvDetailCalories = findViewById(R.id.tv_detail_calories)
         tvDetailFiber = findViewById(R.id.tv_detail_fiber)
         tvDetailProtein = findViewById(R.id.tv_detail_protein)
+        tvDetailCost = findViewById(R.id.tv_detail_cost)
         tvDetailTitle = findViewById(R.id.tv_detail_title)
     }
 
@@ -73,12 +77,20 @@ class DetailActivity : AppCompatActivity() {
         findViewById<ImageView>(R.id.iv_detail_image).setImageResource(resep.image)
 
         val stepsArray = resources.getStringArray(resep.stepsResId)
-        val stepsTextView: TextView = findViewById(R.id.tv_detail_steps)
-        stepsTextView.text = stepsArray
+        findViewById<TextView>(R.id.tv_detail_steps).text = stepsArray
             .mapIndexed { index, step -> "${index + 1}. $step" }
             .joinToString("\n\n")
 
+        calculateInitialCost(resep.ingredientsResId)
         updateDynamicContent()
+    }
+    
+    private fun calculateInitialCost(ingredientsResId: Int) {
+        val ingredientsArray = resources.getStringArray(ingredientsResId)
+        totalCostPerPortion = ingredientsArray.sumOf { ingredientString ->
+            val parts = ingredientString.split(";")
+            parts.getOrNull(3)?.toIntOrNull() ?: 0
+        }
     }
 
     private fun setupPortionButtons() {
@@ -104,6 +116,12 @@ class DetailActivity : AppCompatActivity() {
 
     private fun updateDynamicContent() {
         tvPortionCount.text = currentPortion.toString()
+        
+        val currencyFormat = NumberFormat.getCurrencyInstance(Locale("in", "ID"))
+        currencyFormat.maximumFractionDigits = 0
+        
+        val totalCost = totalCostPerPortion * currentPortion
+        tvDetailCost.text = currencyFormat.format(totalCost)
 
         originalResep?.let { resep ->
             tvDetailCalories.text = "${resep.calories * currentPortion} kcal"
@@ -116,24 +134,26 @@ class DetailActivity : AppCompatActivity() {
                 val name = parts.getOrNull(0) ?: ""
                 val amountStr = parts.getOrNull(1)?.trim()
                 val unit = parts.getOrNull(2) ?: ""
+                val price = parts.getOrNull(3)?.toIntOrNull() ?: 0
 
-                var newAmount = ""
+                var amountInfo = ""
                 amountStr?.toDoubleOrNull()?.let { amount ->
                     if (amount > 0) {
                         val calculatedAmount = amount * currentPortion
-                        newAmount = if (calculatedAmount % 1 == 0.0) {
+                        val newAmount = if (calculatedAmount % 1 == 0.0) {
                             calculatedAmount.toInt().toString()
                         } else {
                             String.format(Locale.US, "%.1f", calculatedAmount)
                         }
+                        amountInfo = "($newAmount $unit)"
+                    } else {
+                        amountInfo = "($unit)"
                     }
                 }
 
-                if (newAmount.isNotEmpty()) {
-                    "• $name ($newAmount $unit)"
-                } else {
-                    "• $name ($unit)"
-                }
+                val calculatedPrice = price * currentPortion
+                val priceInfo = currencyFormat.format(calculatedPrice)
+                "• $name $amountInfo - $priceInfo"
             }
         }
     }
