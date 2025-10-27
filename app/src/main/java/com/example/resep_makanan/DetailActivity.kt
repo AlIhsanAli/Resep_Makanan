@@ -4,12 +4,11 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import com.example.resep_makanan.model.Resep
-import com.google.android.material.appbar.CollapsingToolbarLayout
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import java.text.NumberFormat
 import java.util.Locale
@@ -46,7 +45,7 @@ class DetailActivity : AppCompatActivity() {
         originalResep = resep
 
         if (resep != null) {
-            setupToolbar()
+            setupBackButton()
             bindViews()
             populateUi(resep)
             setupPortionButtons()
@@ -54,12 +53,10 @@ class DetailActivity : AppCompatActivity() {
         }
     }
 
-    private fun setupToolbar() {
-        val toolbar: Toolbar = findViewById(R.id.detail_toolbar)
-        setSupportActionBar(toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        val collapsingToolbar: CollapsingToolbarLayout = findViewById(R.id.collapsing_toolbar)
-        collapsingToolbar.title = " "
+    private fun setupBackButton() {
+        findViewById<ImageButton>(R.id.iv_back_button).setOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
+        }
     }
 
     private fun bindViews() {
@@ -156,10 +153,5 @@ class DetailActivity : AppCompatActivity() {
                 "• $name $amountInfo - $priceInfo"
             }
         }
-    }
-
-    override fun onSupportNavigateUp(): Boolean {
-        onBackPressedDispatcher.onBackPressed()
-        return true
     }
 }

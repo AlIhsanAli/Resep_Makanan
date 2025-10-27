@@ -34,13 +34,6 @@
                 app:layout_collapseMode="parallax"
                 tools:src="@tools:sample/backgrounds/scenic" />
 
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/detail_toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                app:layout_collapseMode="pin"
-                app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
-
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -63,7 +56,7 @@
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
                 android:textColor="?android:attr/textColorPrimary"
                 tools:text="Nama Resep Makanan" />
-            
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -93,7 +86,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Porsi" 
+                            android:text="Porsi"
                             android:textAppearance="?attr/textAppearanceSubtitle1"/>
 
                         <Button
@@ -119,7 +112,7 @@
                             android:layout_height="48dp"
                             android:text="+" />
                     </LinearLayout>
-                    
+
                      <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
@@ -185,7 +178,7 @@
                             android:textStyle="bold"
                             tools:text="15 g" />
                     </LinearLayout>
-                    
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -196,7 +189,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Estimasi Biaya" 
+                            android:text="Estimasi Biaya"
                             android:textStyle="bold"/>
 
                         <TextView
@@ -224,7 +217,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:lineSpacingMultiplier="1.5"
-                tools:text="- Bahan 1\n- Bahan 2\n- Bahan 3" />
+                tools:text="- Bahan 1
+- Bahan 2
+- Bahan 3" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -239,10 +234,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:lineSpacingMultiplier="1.5"
-                tools:text="1. Langkah pertama\n2. Langkah kedua\n3. Langkah ketiga" />
+                tools:text="1. Langkah pertama
+2. Langkah kedua
+3. Langkah ketiga" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
+
+    <ImageButton
+        android:id="@+id/iv_back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_arrow_back"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:layout_margin="16dp"
+        app:tint="@android:color/white" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_timer"
