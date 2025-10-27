@@ -29,9 +29,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setSupportActionBar(binding.toolbar)
-        supportActionBar?.title = "" // Menghapus judul toolbar
-
         binding.rvResep.setHasFixedSize(true)
 
         list.addAll(getAllRecipes())
@@ -40,12 +37,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun fetchWeatherData() {
-        RetrofitClient.instance.getWeather("Jakarta", "d2ab1a996f4ec3a8940469961b5484d9")
+        RetrofitClient.instance.getWeather("Yogyakarta", "d2ab1a996f4ec3a8940469961b5484d9")
             .enqueue(object : Callback<WeatherResponse> {
                 override fun onResponse(call: Call<WeatherResponse>, response: Response<WeatherResponse>) {
                     if (response.isSuccessful) {
                         response.body()?.let { weatherResponse ->
-                            binding.tvCityName.text = "Jakarta"
+                            binding.tvCityName.text = "Yogyakarta"
                             binding.tvTemperature.text = "${weatherResponse.main.temp.toInt()}°"
 
                             val iconCode = weatherResponse.weather.firstOrNull()?.icon
