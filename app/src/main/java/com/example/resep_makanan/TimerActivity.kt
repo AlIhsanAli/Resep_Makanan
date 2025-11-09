@@ -1,9 +1,8 @@
 package com.example.resep_makanan
 
 import android.content.Context
-import android.media.Ringtone
-import android.media.RingtoneManager
-import android.net.Uri
+import android.media.AudioAttributes
+import android.media.MediaPlayer
 import android.os.Build
 import android.os.Bundle
 import android.os.CountDownTimer
@@ -24,7 +23,7 @@ class TimerActivity : AppCompatActivity() {
 
     private var countdownTimer: CountDownTimer? = null
     private var overtimeTimer: CountDownTimer? = null
-    private var ringtone: Ringtone? = null
+    private var mediaPlayer: MediaPlayer? = null
     private lateinit var vibrator: Vibrator
 
     private var timeLeftInMillis: Long = 0
@@ -243,14 +242,21 @@ class TimerActivity : AppCompatActivity() {
 
     private fun playAlarm() {
         try {
-            val alarmUri = Uri.parse("android.resource://$packageName/${R.raw.samsung_ringtone}")
-            ringtone = RingtoneManager.getRingtone(applicationContext, alarmUri)
-            ringtone?.isLooping = true
-            ringtone?.play()
+            mediaPlayer = MediaPlayer.create(this, R.raw.samsung_ringtone)
+            mediaPlayer?.isLooping = true
+
+            mediaPlayer?.setAudioAttributes(
+                AudioAttributes.Builder()
+                    .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+                    .setUsage(AudioAttributes.USAGE_ALARM)
+                    .build()
+            )
+            
+            mediaPlayer?.start()
 
             val pattern = longArrayOf(0, 1000, 1000) // Vibrate, wait, vibrate
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                vibrator.vibrate(VibrationEffect.createWaveform(pattern, 0)) // a repeat index of 0 will repeat the pattern indefinitely
+                vibrator.vibrate(VibrationEffect.createWaveform(pattern, 0))
             } else {
                 @Suppress("DEPRECATION")
                 vibrator.vibrate(pattern, 0)
@@ -262,7 +268,9 @@ class TimerActivity : AppCompatActivity() {
     }
 
     private fun stopAlarm() {
-        ringtone?.stop()
+        mediaPlayer?.stop()
+        mediaPlayer?.release()
+        mediaPlayer = null
         vibrator.cancel()
     }
 
@@ -277,7 +285,6 @@ class TimerActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        // Clean up to prevent leaks
         countdownTimer?.cancel()
         overtimeTimer?.cancel()
         stopAlarm()
