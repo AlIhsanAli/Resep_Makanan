@@ -25,6 +25,7 @@ class DetailActivity : AppCompatActivity() {
 
     private lateinit var tvPortionCount: TextView
     private lateinit var tvDetailIngredients: TextView
+    private lateinit var tvDetailTools: TextView
     private lateinit var tvDetailCalories: TextView
     private lateinit var tvDetailFiber: TextView
     private lateinit var tvDetailProtein: TextView
@@ -62,6 +63,7 @@ class DetailActivity : AppCompatActivity() {
     private fun bindViews() {
         tvPortionCount = findViewById(R.id.tv_portion_count)
         tvDetailIngredients = findViewById(R.id.tv_detail_ingredients)
+        tvDetailTools = findViewById(R.id.tv_detail_tools)
         tvDetailCalories = findViewById(R.id.tv_detail_calories)
         tvDetailFiber = findViewById(R.id.tv_detail_fiber)
         tvDetailProtein = findViewById(R.id.tv_detail_protein)
@@ -72,6 +74,11 @@ class DetailActivity : AppCompatActivity() {
     private fun populateUi(resep: Resep) {
         tvDetailTitle.text = resep.name
         findViewById<ImageView>(R.id.iv_detail_image).setImageResource(resep.image)
+
+        val toolsArray = resources.getStringArray(resep.toolsResId)
+        tvDetailTools.text = toolsArray
+            .map { tool -> "• $tool" }
+            .joinToString("\n")
 
         val stepsArray = resources.getStringArray(resep.stepsResId)
         findViewById<TextView>(R.id.tv_detail_steps).text = stepsArray

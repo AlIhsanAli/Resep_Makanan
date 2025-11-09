@@ -12,6 +12,7 @@ data class Resep(
     val image: Int, // Drawable Resource ID
     @ArrayRes val ingredientsResId: Int, // Menggunakan String-Array Resource ID
     @ArrayRes val stepsResId: Int,       // Menggunakan String-Array Resource ID
+    @ArrayRes val toolsResId: Int,       // Menggunakan String-Array Resource ID
     val calories: Int,
     val fiber: Int,
     val protein: Int

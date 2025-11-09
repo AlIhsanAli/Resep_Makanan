@@ -1,0 +1,91 @@
+<resources>
+    <!-- Tools for Nasi Goreng -->
+    <string-array name="tools_nasi_goreng">
+        <item>Wajan</item>
+        <item>Spatula</item>
+        <item>Kompor</item>
+        <item>Piring</item>
+        <item>Mangkuk</item>
+    </string-array>
+
+    <!-- Tools for Soto Ayam -->
+    <string-array name="tools_soto_ayam">
+        <item>Panci besar</item>
+        <item>Spatula</item>
+        <item>Kompor</item>
+        <item>Mangkuk saji</item>
+        <item>Blender atau ulekan</item>
+    </string-array>
+
+    <!-- Tools for Gado-Gado -->
+    <string-array name="tools_gado_gado">
+        <item>Panci untuk merebus</item>
+        <item>Ulekan dan cobek</item>
+        <item>Mangkuk besar</item>
+        <item>Piring saji</item>
+        <item>Spatula</item>
+    </string-array>
+
+    <!-- Tools for Rendang -->
+    <string-array name="tools_rendang">
+        <item>Wajan besar atau panci tebal</item>
+        <item>Spatula kayu</item>
+        <item>Kompor</item>
+        <item>Blender atau ulekan</item>
+        <item>Mangkuk</item>
+    </string-array>
+
+    <!-- Tools for Sate Ayam -->
+    <string-array name="tools_sate_ayam">
+        <item>Tusuk sate</item>
+        <item>Panggangan atau teflon</item>
+        <item>Kuas bumbu</item>
+        <item>Mangkuk untuk bumbu</item>
+        <item>Piring saji</item>
+    </string-array>
+
+    <!-- Tools for Bakso -->
+    <string-array name="tools_bakso">
+        <item>Panci besar</item>
+        <item>Food processor atau blender</item>
+        <item>Mangkuk besar</item>
+        <item>Sendok</item>
+        <item>Kompor</item>
+    </string-array>
+
+    <!-- Tools for Rawon -->
+    <string-array name="tools_rawon">
+        <item>Panci besar</item>
+        <item>Ulekan atau blender</item>
+        <item>Wajan</item>
+        <item>Spatula</item>
+        <item>Kompor</item>
+    </string-array>
+
+    <!-- Tools for Pempek -->
+    <string-array name="tools_pempek">
+        <item>Panci untuk merebus</item>
+        <item>Wajan untuk menggoreng</item>
+        <item>Food processor atau blender</item>
+        <item>Mangkuk besar</item>
+        <item>Spatula</item>
+    </string-array>
+
+    <!-- Tools for Iga Bakar -->
+    <string-array name="tools_iga_bakar">
+        <item>Panci presto</item>
+        <item>Panggangan atau oven</item>
+        <item>Kuas bumbu</item>
+        <item>Mangkuk untuk bumbu</item>
+        <item>Capit makanan</item>
+    </string-array>
+
+    <!-- Tools for Sayur Asem -->
+    <string-array name="tools_sayur_asem">
+        <item>Panci besar</item>
+        <item>Ulekan atau blender</item>
+        <item>Spatula</item>
+        <item>Kompor</item>
+        <item>Mangkuk saji</item>
+    </string-array>
+</resources>

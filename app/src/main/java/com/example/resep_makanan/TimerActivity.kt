@@ -3,6 +3,7 @@ package com.example.resep_makanan
 import android.content.Context
 import android.media.Ringtone
 import android.media.RingtoneManager
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.CountDownTimer
@@ -242,8 +243,9 @@ class TimerActivity : AppCompatActivity() {
 
     private fun playAlarm() {
         try {
-            val alarmUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM)
+            val alarmUri = Uri.parse("android.resource://$packageName/${R.raw.samsung_ringtone}")
             ringtone = RingtoneManager.getRingtone(applicationContext, alarmUri)
+            ringtone?.isLooping = true
             ringtone?.play()
 
             val pattern = longArrayOf(0, 1000, 1000) // Vibrate, wait, vibrate

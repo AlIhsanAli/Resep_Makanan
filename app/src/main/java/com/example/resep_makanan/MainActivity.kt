@@ -4,17 +4,20 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Button
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityOptionsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.resep_makanan.adapter.ResepAdapter
+import com.example.resep_makanan.CuacaActivity
 import com.example.resep_makanan.databinding.ActivityMainBinding
 import com.example.resep_makanan.db.DatabaseHelper
 import com.example.resep_makanan.model.Resep
-import com.example.resep_makanan.model.WeatherResponse
+import com.example.resep_makanan.network.WeatherResponse
 import com.example.resep_makanan.network.RetrofitClient
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -33,37 +36,12 @@ class MainActivity : AppCompatActivity() {
 
         list.addAll(getAllRecipes())
         showRecyclerList()
-        fetchWeatherData()
-    }
 
-    private fun fetchWeatherData() {
-        RetrofitClient.instance.getWeather("Yogyakarta", "d2ab1a996f4ec3a8940469961b5484d9")
-            .enqueue(object : Callback<WeatherResponse> {
-                override fun onResponse(call: Call<WeatherResponse>, response: Response<WeatherResponse>) {
-                    if (response.isSuccessful) {
-                        response.body()?.let { weatherResponse ->
-                            binding.tvCityName.text = "Yogyakarta"
-                            binding.tvTemperature.text = "${weatherResponse.main.temp.toInt()}°"
-
-                            val iconCode = weatherResponse.weather.firstOrNull()?.icon
-                            val iconUrl = "https://openweathermap.org/img/wn/$iconCode@2x.png"
-
-                            Glide.with(this@MainActivity)
-                                .load(iconUrl)
-                                .into(binding.ivWeatherIcon)
-                        }
-                    } else {
-                        val errorBody = response.errorBody()?.string()
-                        Log.e("MainActivity", "Error: ${response.code()} - $errorBody")
-                        binding.tvTemperature.text = "Err"
-                    }
-                }
-
-                override fun onFailure(call: Call<WeatherResponse>, t: Throwable) {
-                    Log.e("MainActivity", "Network failure", t)
-                    binding.tvTemperature.text = "N/A"
-                }
-            })
+        val fabWeather: FloatingActionButton = findViewById(R.id.fab_weather)
+        fabWeather.setOnClickListener {
+            val intent = Intent(this, CuacaActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun getAllRecipes(): ArrayList<Resep> {
@@ -82,6 +60,7 @@ class MainActivity : AppCompatActivity() {
                     image = cursor.getInt(cursor.getColumnIndexOrThrow(DatabaseHelper.COL_IMAGE)),
                     ingredientsResId = cursor.getInt(cursor.getColumnIndexOrThrow(DatabaseHelper.COL_INGREDIENTS_ID)),
                     stepsResId = cursor.getInt(cursor.getColumnIndexOrThrow(DatabaseHelper.COL_STEPS_ID)),
+                    toolsResId = cursor.getInt(cursor.getColumnIndexOrThrow(DatabaseHelper.COL_TOOLS_ID)),
                     calories = cursor.getInt(cursor.getColumnIndexOrThrow(DatabaseHelper.COL_CALORIES)),
                     fiber = cursor.getInt(cursor.getColumnIndexOrThrow(DatabaseHelper.COL_FIBER)),
                     protein = cursor.getInt(cursor.getColumnIndexOrThrow(DatabaseHelper.COL_PROTEIN))

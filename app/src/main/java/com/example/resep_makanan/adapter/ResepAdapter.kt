@@ -48,6 +48,6 @@ class ResepAdapter(private val resepList: List<Resep>) : RecyclerView.Adapter<Re
     }
 
     interface OnItemClickCallback {
-        fun onItemClicked(data: Resep, imageView: ImageView) // Ditambahkan ImageView
+        fun onItemClicked(data: Resep, imageView: ImageView)
     }
 }

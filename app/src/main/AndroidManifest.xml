@@ -37,6 +37,9 @@
             android:name=".TimerActivity"
             android:parentActivityName=".DetailActivity"
             android:theme="@style/Theme.Resep_Makanan.NoActionBar" />
+        <activity
+            android:name=".CuacaActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

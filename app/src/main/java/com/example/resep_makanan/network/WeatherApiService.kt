@@ -1,15 +1,15 @@
 package com.example.resep_makanan.network
 
-import com.example.resep_makanan.model.WeatherResponse
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-interface ApiService {
+interface WeatherApiService {
     @GET("weather")
     fun getWeather(
         @Query("q") city: String,
         @Query("appid") apiKey: String,
-        @Query("units") units: String = "metric" // Menambahkan parameter units
+        @Query("units") units: String = "metric",
+        @Query("lang") lang: String = "id"
     ): Call<WeatherResponse>
 }

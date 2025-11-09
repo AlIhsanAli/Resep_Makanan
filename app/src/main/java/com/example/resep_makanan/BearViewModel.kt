@@ -9,7 +9,6 @@ import app.rive.ViewModelSource
 import app.rive.core.CommandQueue
 import app.rive.core.FileHandle
 import app.rive.core.ViewModelInstanceHandle
-import com.example.resep_makanan.R
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
