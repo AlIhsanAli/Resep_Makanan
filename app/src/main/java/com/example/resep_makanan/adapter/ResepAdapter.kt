@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.resep_makanan.R
 import com.example.resep_makanan.model.Resep
 
@@ -38,7 +39,9 @@ class ResepAdapter(private val resepList: List<Resep>) : RecyclerView.Adapter<Re
         private val tvDescription: TextView = itemView.findViewById(R.id.tv_resep_description)
 
         fun bind(resep: Resep) {
-            ivImage.setImageResource(resep.image)
+            Glide.with(itemView.context)
+                .load(resep.image)
+                .into(ivImage)
             tvName.text = resep.name
             tvDescription.text = resep.description
         }
