@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Resep_Makanan" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Theme.Resep_Makanan" parent="Theme.Material3.Light.NoActionBar">
         <!-- Menimpa gaya CardView untuk mengatasi crash pada Material 3 -->
         <item name="materialCardViewStyle">@style/Widget.MaterialComponents.CardView</item>
 
