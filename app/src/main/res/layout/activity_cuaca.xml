@@ -8,49 +8,62 @@
     android:padding="16dp"
     tools:context=".CuacaActivity">
 
-    <ImageView
-        android:id="@+id/ivBack"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:padding="8dp"
-        android:src="@drawable/ic_arrow_back"
-        app:tint="@android:color/white" />
-
-    <RelativeLayout
-        android:id="@+id/searchLayout"
+    <!-- Header Section -->
+    <LinearLayout
+        android:id="@+id/headerLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/ivBack"
-        android:layout_marginTop="8dp"
-        android:background="@android:color/white"
-        android:padding="4dp">
-
-        <EditText
-            android:id="@+id/etSearch"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_toStartOf="@+id/ivSearch"
-            android:background="@null"
-            android:hint="Cari kota..."
-            android:imeOptions="actionSearch"
-            android:inputType="text"
-            android:padding="8dp"
-            android:textColor="@android:color/black"
-            android:textColorHint="#888888" />
+        android:layout_alignParentTop="true"
+        android:orientation="vertical"
+        android:layout_marginTop="24dp">  <!-- Atribut ini ditambahkan -->
 
         <ImageView
-            android:id="@+id/ivSearch"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
+            android:id="@+id/ivBack"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
             android:padding="8dp"
-            android:src="@drawable/ic_search" />
-    </RelativeLayout>
+            android:src="@drawable/ic_arrow_back"
+            app:tint="@android:color/white" />
 
+        <RelativeLayout
+            android:id="@+id/searchLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/search_bg"
+            android:padding="4dp">
+
+            <EditText
+                android:id="@+id/etSearch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toStartOf="@+id/ivSearch"
+                android:background="@null"
+                android:hint="Cari kota..."
+                android:imeOptions="actionSearch"
+                android:inputType="text"
+                android:padding="8dp"
+                android:textColor="@android:color/black"
+                android:textColorHint="#888888"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/ivSearch"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:background="?attr/selectableItemBackground"
+                android:padding="8dp"
+                android:src="@drawable/ic_search"
+                app:tint="#555555"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+
+    <!-- Weather Info Section -->
     <LinearLayout
         android:id="@+id/weatherInfo"
         android:layout_width="wrap_content"
@@ -63,18 +76,18 @@
             android:id="@+id/tvCity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Jakarta"
             android:textColor="@android:color/white"
             android:textSize="32sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:text="Yogyakarta" />
 
         <TextView
             android:id="@+id/tvDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Rabu, 15 November 2024"
             android:textColor="@android:color/white"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            tools:text="Kamis, 20 November 2025" />
 
         <ImageView
             android:id="@+id/ivWeatherIcon"
@@ -87,20 +100,21 @@
             android:id="@+id/tvTemperature"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="28°"
             android:textColor="@android:color/white"
             android:textSize="80sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:text="27°" />
 
         <TextView
             android:id="@+id/tvWeatherDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Berawan Cerah"
             android:textColor="@android:color/white"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            tools:text="Awan Mendung" />
     </LinearLayout>
 
+    <!-- Weather Details Section -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -125,6 +139,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:layout_marginEnd="8dp"
                 app:cardBackgroundColor="#64b5f6"
                 app:cardCornerRadius="8dp">
 
@@ -145,17 +160,17 @@
                         android:id="@+id/tvFeelsLike"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        tools:text="30°"
                         android:textColor="@android:color/white"
                         android:textSize="24sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        tools:text="32°" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="8dp"
                 android:layout_weight="1"
                 app:cardBackgroundColor="#64b5f6"
                 app:cardCornerRadius="8dp">
@@ -177,10 +192,10 @@
                         android:id="@+id/tvPressure"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        tools:text="1013 hPa"
                         android:textColor="@android:color/white"
                         android:textSize="24sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        tools:text="1007 hPa" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
         </LinearLayout>
@@ -195,6 +210,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:layout_marginEnd="8dp"
                 app:cardBackgroundColor="#64b5f6"
                 app:cardCornerRadius="8dp">
 
@@ -215,17 +231,17 @@
                         android:id="@+id/tvHumidity"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        tools:text="90%"
                         android:textColor="@android:color/white"
                         android:textSize="24sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        tools:text="84%" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="8dp"
                 android:layout_weight="1"
                 app:cardBackgroundColor="#64b5f6"
                 app:cardCornerRadius="8dp">
@@ -247,10 +263,10 @@
                         android:id="@+id/tvWind"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        tools:text="5.2 km/h"
                         android:textColor="@android:color/white"
                         android:textSize="24sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        tools:text="9.2 km/h" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
         </LinearLayout>
